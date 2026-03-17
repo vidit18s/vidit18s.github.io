@@ -81,13 +81,24 @@
     .project-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .project-link { font-size: 0.75rem; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; border-bottom: 1px solid transparent; transition: border-color 0.2s; width: fit-content; }
     .project-link:hover { border-color: var(--accent); }
+ 
+    /* Education */
     .edu-item { display: grid; grid-template-columns: 180px 1fr; gap: 3rem; padding: 2rem 0; border-bottom: 1px solid var(--border); }
     .edu-item:last-child { border-bottom: none; }
     .edu-year { font-size: 0.72rem; color: var(--subtle); }
     .edu-degree { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .edu-school { font-size: 0.8rem; color: var(--accent); margin-bottom: 0.4rem; }
+    .edu-school {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.8rem; color: var(--accent); margin-bottom: 0.4rem;
+      text-decoration: none;
+      transition: transform 0.25s ease, color 0.2s;
+      width: fit-content;
+    }
+    .edu-school:hover { transform: translateY(-3px); color: #0f2d45; }
+    .edu-school .ext-icon { font-size: 0.65rem; opacity: 0.6; }
     .edu-grade { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; color: var(--green); background: var(--green-light); border: 1px solid #a8d5bc; padding: 0.2rem 0.6rem; border-radius: 3px; margin-bottom: 0.5rem; }
     .edu-modules { font-size: 0.75rem; color: var(--muted); line-height: 1.7; }
+ 
     #contact { background: var(--text); color: var(--bg); border-bottom: none; }
     #contact h2 { color: var(--bg); }
     #contact .section-num { color: rgba(250,250,248,0.3); }
@@ -108,34 +119,20 @@
     .btn-white:hover { opacity: 0.85; }
     footer { background: var(--text); padding: 1.5rem 3rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(250,250,248,0.08); }
     footer span { font-size: 0.7rem; color: rgba(250,250,248,0.3); }
-
-    /* ── Profile photo hover ── */
-    .photo-wrap {
-      position: relative; width: 110px; height: 110px;
-      margin-bottom: 2rem; cursor: default; flex-shrink: 0;
-    }
-    .photo-wrap img {
-      width: 110px; height: 110px; border-radius: 50%;
-      object-fit: cover; border: 3px solid var(--border);
-      display: block; transition: all 0.35s ease;
-    }
+ 
+    /* Profile photo hover */
+    .photo-wrap { position: relative; width: 110px; height: 110px; margin-bottom: 2rem; cursor: default; flex-shrink: 0; }
+    .photo-wrap img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border); display: block; transition: all 0.35s ease; }
     .photo-wrap:hover img { filter: blur(3px) brightness(0.4); transform: scale(1.05); }
-    .photo-fact {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.15rem; opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
-    }
+    .photo-fact { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.15rem; opacity: 0; transition: opacity 0.35s ease; pointer-events: none; }
     .photo-wrap:hover .photo-fact { opacity: 1; }
     .photo-fact .fi { font-size: 1rem; line-height: 1; }
     .photo-fact span { font-size: 0.58rem; color: #fff; font-weight: 500; line-height: 1.2; text-align: center; }
-
-    /* ── Scroll reveal ── */
+ 
+    /* Scroll reveal */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-
+ 
     @media (max-width: 900px) {
       nav { padding: 0 1.5rem; }
       .nav-links { display: none; }
@@ -151,23 +148,22 @@
   </style>
 </head>
 <body>
-
+ 
 <nav>
   <a href="#" class="nav-name">Vidit Malhotra</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="Vidit_Malhotra_swansea.pdf" download class="nav-cta">Download CV</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-
-    <!-- Profile photo — hover to reveal fun facts -->
     <div class="photo-wrap">
       <img src="profile.jpg" alt="Vidit Malhotra"/>
       <div class="photo-fact">
@@ -177,7 +173,6 @@
         <span>Open world gamer</span>
       </div>
     </div>
-
     <div class="hero-eyebrow">Data Scientist & Analyst</div>
     <h1>Vidit<br/>Malhotra</h1>
     <p class="hero-sub">MSc Data Science & AI (Distinction, University of Liverpool). I build robust data pipelines, predictive ML systems, and analytical dashboards that turn complex data into reliable decisions.</p>
@@ -201,7 +196,7 @@
     <div class="info-row"><span class="info-label">Blog</span><span class="info-value"><a href="https://zeyman.home.blog" target="_blank">zeyman.home.blog</a></span></div>
   </div>
 </section>
-
+ 
 <!-- ABOUT -->
 <section id="about" class="section-wrap">
   <div class="section-header reveal"><span class="section-num">01</span><h2>About</h2></div>
@@ -211,7 +206,6 @@
       <p>My work spans the full data stack — from cleaning and reconciling multi-source data to building predictive models with SHAP explainability, and presenting findings through interactive BI dashboards in Power BI, Tableau, and Streamlit.</p>
       <p>I've worked in commercial analytics roles, built revenue forecasting systems, and developed automated data quality frameworks. Keen interest in applying data science to health, population research, and operational decision-making.</p>
     </div>
-    <!-- Stats count up when scrolled into view -->
     <div class="stats-row reveal">
       <div class="stat"><div class="stat-num" data-target="0.87" data-float="true" data-suffix="">0.87</div><div class="stat-desc">ROC-AUC achieved</div></div>
       <div class="stat"><div class="stat-num" data-target="10" data-float="false" data-suffix="K+">10K+</div><div class="stat-desc">Records processed</div></div>
@@ -220,7 +214,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SKILLS -->
 <section id="skills" class="section-wrap">
   <div class="section-header reveal"><span class="section-num">02</span><h2>Technical Skills</h2></div>
@@ -278,12 +272,11 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- PROJECTS -->
 <section id="projects" class="section-wrap">
   <div class="section-header reveal"><span class="section-num">03</span><h2>Projects</h2></div>
   <div class="projects-grid">
-
     <div class="project-card reveal">
       <div class="project-label">ML · Classification · Explainability</div>
       <div class="project-title">Customer Churn & Retention Analysis</div>
@@ -295,7 +288,6 @@
         <a href="https://github.com/vidit18s/churn-prediction" target="_blank" class="project-link">View on GitHub ↗</a>
       </div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-label">NLP · Search · ETL Pipeline</div>
       <div class="project-title">Keyword Indexing of Subtitled Videos</div>
@@ -306,7 +298,6 @@
         <a href="https://github.com/vidit18s/Keyword-Indexing-of-Subtitled-Videos" target="_blank" class="project-link">View on GitHub ↗</a>
       </div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-label">Analytics · BI Dashboard</div>
       <div class="project-title">SaaS Revenue & Churn Dashboard</div>
@@ -319,10 +310,9 @@
         <a href="https://saas-churn-dashboard-demo.streamlit.app/" target="_blank" class="project-link">Live Demo ↗</a>
       </div>
     </div>
-
   </div>
 </section>
-
+ 
 <!-- EDUCATION -->
 <section id="education" class="section-wrap">
   <div class="section-header reveal"><span class="section-num">04</span><h2>Education</h2></div>
@@ -331,8 +321,10 @@
       <div><div class="edu-year">2024 – 2025</div></div>
       <div>
         <div class="edu-degree">MSc Data Science & Artificial Intelligence</div>
-        <div class="edu-school">University of Liverpool, UK</div>
-        <div class="edu-grade">★ Distinction</div>
+        <a href="https://www.liverpool.ac.uk/" target="_blank" class="edu-school">
+          University of Liverpool, UK <span class="ext-icon">↗</span>
+        </a>
+        <div><div class="edu-grade">★ Distinction</div></div>
         <div class="edu-modules">Modules: Database Systems (SQL), Big Data Analytics, Data Mining, Applied AI, Web Programming</div>
       </div>
     </div>
@@ -340,14 +332,16 @@
       <div><div class="edu-year">2018 – 2022</div></div>
       <div>
         <div class="edu-degree">BE Mechanical Engineering</div>
-        <div class="edu-school">Mangalmay Institute of Engineering & Technology, India</div>
-        <div class="edu-grade">★ Merit</div>
+        <a href="https://www.mangalmay.org/" target="_blank" class="edu-school">
+          Mangalmay Institute of Engineering & Technology, India <span class="ext-icon">↗</span>
+        </a>
+        <div><div class="edu-grade">★ Merit</div></div>
         <div class="edu-modules">Modules: Engineering Mathematics, Linear Algebra, Probability & Statistics, Thermodynamics, Fluid Dynamics</div>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact" class="section-wrap">
   <div class="section-header reveal"><span class="section-num">05</span><h2>Get in Touch</h2></div>
@@ -380,19 +374,19 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <span>© 2025 Vidit Malhotra</span>
   <span>Liverpool, UK · Available for opportunities</span>
 </footer>
-
+ 
 <script>
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+ 
   // Count-up animation
   function countUp(el, target, isFloat, suffix, duration) {
     const startTime = performance.now();
@@ -406,7 +400,7 @@
     }
     requestAnimationFrame(update);
   }
-
+ 
   let statsAnimated = false;
   const statsObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -421,7 +415,7 @@
       }
     });
   }, { threshold: 0.4 });
-
+ 
   const statsSection = document.querySelector('.stats-row');
   if (statsSection) statsObserver.observe(statsSection);
 </script>
